@@ -1,0 +1,20 @@
+# run/build artifacts
+allure-results
+allure-report
+.nyc_output
+out
+*.log
+*.txt
+*.xml
+
+# IDE artifacts
+.idea
+.vscode
+
+
+# node artifacts
+*.js
+*.d.ts
+*.zip
+node_modules
+package-lock.json
