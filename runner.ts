@@ -11,7 +11,7 @@ const mocha = new Mocha({
   
   reporter: "mocha-multi-reporters",
   reporterOptions: {
-    reporterEnabled: "allure-mocha, mocha-junit-reporter",
+    reporterEnabled: "allure-mocha",
     allureMochaReporterOptions: {
       resultsDir: path.resolve(__dirname, "./allure-results"),
       parallel: true,

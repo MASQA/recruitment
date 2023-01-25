@@ -33,7 +33,7 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "yarn install"
+	"postCreateCommand": "npm install"
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
@@ -47,38 +47,7 @@
 	"postCreateCommand": "npm install",
 	"customizations": {
 		"vscode": {
-			"configurations": [
-				{
-					"type": "node",
-					"request": "launch",
-					"name": "clean",
-					"program": "${workspaceFolder}/node_modules/rimraf/bin.js",
-					"args": ["./report", "./allure-results"]
-				},
-				{
-					"type": "node",
-					"request": "launch",
-					"name": "test",
-					"program": "${workspaceFolder}/runner.ts",
-					"runtimeArgs": [
-						"-r",
-						"${workspaceRoot}/node_modules/ts-node/register"
-					],
-					"args": ["--project", "${workspaceFolder}/src/tsconfig.json"],
-					"env": { "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json" }
-				},
-				{
-					"type": "node",
-					"request": "launch",
-					"name": "test",
-					"runtimeArgs": [
-						"-r",
-						"${workspaceRoot}/node_modules/ts-node/register"
-					],
-					"args": ["--project", "${workspaceFolder}/src/tsconfig.json", "${workspaceFolder}/runner.ts"],
-					"env": { "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json" }
-				}
-			]
+			
 		}
 	}
 }*/

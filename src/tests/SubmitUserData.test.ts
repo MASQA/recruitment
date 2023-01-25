@@ -17,7 +17,7 @@ import {
   tag,
   testCaseId}
 from 'allure-decorators'
-import { User } from '../model/User'
+import { DataFactory, User } from '../model/DataFactory'
 import { sleep } from '../utils/common'
 import { AllPages } from '../pages'
 import { Browser } from '../lib'
@@ -35,11 +35,11 @@ class Authorization {
   
   
   public static testData = (): User => {
-    return User.dummy()
+    return DataFactory.dummy()
   }
 
   public static testDataList = (): User[] => {
-    return User.dummyList()
+    return DataFactory.dummyList()
   }
 
   @issue('11')

@@ -11,7 +11,7 @@
     "tslint": "tslint --project ."
   },
   "devDependencies": {
-    "@testdeck/mocha": "0.1.2",
+    "@testdeck/mocha": "0.3.3",
     "@types/chai": "^4.2.19",
     "@types/chai-http": "^4.2.0",
     "@types/glob": "^8.0.0",
@@ -35,10 +35,8 @@
     "ts-node": "^10.9.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
-    "tslint-eslint-rules": "^5.4.0",
     "tslint-plugin-prettier": "^2.0.0",
-    "typescript": "^4.9.3",
-    "typescript-eslint-parser": "^19.0.2"
+    "typescript": "^4.9.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -49,9 +47,8 @@
   "dependencies": {
     "@types/luxon": "^3.0.0",
     "@types/selenium-webdriver": "^4.1.10",
-    "browsermob-proxy-client": "^0.1.0",
     "cheerio": "^1.0.0-rc.12",
-    "chromedriver": "^109.0.0",
+    "chromedriver": "109.0.0",
     "date-fns": "^2.29.1",
     "execa": "^6.1.0",
     "glob": "^7.1.7",
@@ -61,11 +58,10 @@
     "libxmljs": "^0.19.10",
     "luxon": "^3.0.1",
     "mocha": "^10.1.0",
-    "mocha-allure2-reporter": "0.0.3",
     "mocha-multi-reporters": "^1.5.1",
     "mocha-typescript": "^1.1.17",
     "node-html-parser": "^6.0.0",
-    "oracledb": "^5.5.0",
+    "oracledb": "5.5.0",
     "parse5": "^7.1.1",
     "prepend-transform": "0.0.1019",
     "reflect-metadata": "^0.1.13",
@@ -73,4 +69,4 @@
     "selenium-webdriver": "^4.7.1",
     "tcp-port-used": "^1.0.2"
   }
- }
+}
