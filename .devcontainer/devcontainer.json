@@ -1,4 +1,44 @@
+
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
+	"name": "recrtuitment_node.js",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [3000],
+
+	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
+	// More info: https://containers.dev/implementors/json_reference/#port-attributes
+	"portsAttributes": {
+		"9000": {
+			"label": "Hello Remote World",
+			"onAutoForward": "notify"
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "yarn install"
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
+/*{
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/typescript:2": {},
@@ -7,7 +47,7 @@
 	"postCreateCommand": "npm install",
 	"customizations": {
 		"vscode": {
-			/*"configurations": [
+			"configurations": [
 				{
 					"type": "node",
 					"request": "launch",
@@ -38,7 +78,7 @@
 					"args": ["--project", "${workspaceFolder}/src/tsconfig.json", "${workspaceFolder}/runner.ts"],
 					"env": { "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json" }
 				}
-			]*/
+			]
 		}
 	}
-}
+}*/
