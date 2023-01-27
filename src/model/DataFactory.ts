@@ -4,31 +4,34 @@ export class DataFactory {
 
   public static getFirstName(i: number = -1) {
     if (i < 0) {
-      i = getRandomArbitrary(0, DataFactory.listNames.length)
+      i = getRandomIndex(DataFactory.listNames.length)
     }
     return DataFactory.listNames[i]
   }
 
   public static getSurName(i: number = -1) {
     if (i < 0) {
-      i = getRandomArbitrary(0, DataFactory.listSurNames.length)
+      i = getRandomIndex(DataFactory.listSurNames.length)
     }
     return DataFactory.listSurNames[i]
   }
 
-  public static getBusinessName(i: number = -1,j: number = -1,k: number = -1) {
+  public static getBusinessName(firstName: string = null, secondName: string = null,surName: string = null) {
     const names = DataFactory.listNames
     const surNames = DataFactory.listSurNames
-    if (i < 0) {
-     i = getRandomArbitrary(0, names.length)
+    if (!firstName) {
+      firstName = names[getRandomIndex(names.length)]
     }
-    if (j < 0) {
-     j = getRandomArbitrary(0, names.length)
+    if (!secondName) {
+      const index = getRandomIndex(names.length)
+      secondName = names[index]
     }
-    if (k < 0) {
-     k = getRandomArbitrary(0, surNames.length)
+    if (!surName) {
+      surName = surNames[getRandomIndex(surNames.length)]
     }
-    return names[i][0] + '.' + names[j][0] + '.' + surNames[k]
+    const firstLetter = firstName[0]
+    const secondLetter = secondName[0]
+    return firstLetter + '.' + secondLetter + '.' + surName
   }
 
   public static dummy(): User {
@@ -39,7 +42,10 @@ export class DataFactory {
     let ret = []
     let i = 0
     while (i < 2){
-      const temp = new User(DataFactory.getFirstName(),DataFactory.getSurName(),DataFactory.getBusinessName())
+      const firstName = DataFactory.getFirstName()
+      const surName = DataFactory.getSurName()
+      const businessName = DataFactory.getBusinessName(firstName,null,surName)
+      const temp = new User(firstName, surName,businessName)
       ret.push(temp)
       i++
     }
@@ -56,29 +62,8 @@ constructor(readonly firstname: string,
   }
 }
 
-/**
-Random reciept
-https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
-*/
-
-/**
- * Returns a random number between min (inclusive) and max (exclusive)
- */
-
-export  function getRandomArbitrary(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-  }
-
-/**
- * Returns a random integer between min (inclusive) and max (inclusive).
- * The value is no lower than min (or the next integer greater than min
- * if min isn't an integer) and no greater than max (or the next integer
- * lower than max if max isn't an integer).
- * Using Math.round() will give you a non-uniform distribution!
- */
-export function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+export  function getRandomIndex(total: number) {
+  return Math.floor(Math.random() * (total)) ;
+  ;
 }
 
