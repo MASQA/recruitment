@@ -25,7 +25,7 @@ import { Browser } from '../lib'
 dotenv.config()
 
 @suite
-class Authorization {
+class SubmitForm {
  public before() {
     assignTmsUrl(process.env.TMS_URL)
     assignPmsUrl(process.env.PMS_URL)
@@ -51,7 +51,7 @@ class Authorization {
   @owner('msiliyan')
   @tag('smoke')
   @description('Test submiting data')
-  @data(Authorization.testData)
+  @data(SubmitForm.testData)
   @data.naming(user => `${user} data should be typed and submiting`)
   @test
   public async submitUserData(user: User) {
