@@ -27,6 +27,9 @@ export class SubmitPanel extends WebComponent {
     @findByInComponent('#demo')
     public Submit: Button;
 
+    @findByInComponent('.col-md-12 > .text-center')
+    public SubmitMessage: WebComponent;
+
     @step('Заполнить информацию по пользователю')
     public async sendInfo() {
         await this.Name.type('John')

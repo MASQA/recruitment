@@ -43,7 +43,7 @@ class DbRequestTest {
   @test
   public async requestShouldBeReturnOne(num) {
     await sleep(25000)
-    'https://phptravels.com/order'
+    //'https://phptravels.com/order'
   }
 
   public before() {

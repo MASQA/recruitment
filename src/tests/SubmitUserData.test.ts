@@ -21,6 +21,8 @@ import { DataFactory, User } from '../model/DataFactory'
 import { sleep } from '../utils/common'
 import { AllPages } from '../pages'
 import { Browser } from '../lib'
+import { ensure } from '../lib/'
+
 
 dotenv.config()
 
@@ -59,6 +61,8 @@ class SubmitForm {
    
     await pages.submitPage.navigate('https://phptravels.com/demo');
     await pages.submitPage.SubmitPanel.sendInfo();
+
+    ensure(pages.submitPage.SubmitPanel.Name).isNotVisible();
 
     await pages.dispose();
   }

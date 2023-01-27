@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { WebElementPromise } from 'selenium-webdriver';
+import { Builder, ThenableWebDriver, WebElement, By, WebElementPromise } from 'selenium-webdriver';
 
 export class WebComponent {
   constructor(protected element: WebElementPromise, public selector: string) { 
@@ -17,6 +17,10 @@ export class WebComponent {
         throw clickErr;
       }
     }
+  }
+
+  public findElementInElement(selector: string): WebElementPromise {
+    return this.element.findElement(By.css(selector));
   }
 
   public async isDisplayed() {

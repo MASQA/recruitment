@@ -1,5 +1,6 @@
 import { WebElementPromise } from 'selenium-webdriver';
 import { WebComponent, Button, TextInput } from './';
+import { expect } from 'chai';
 
 class WebComponentEnsurer {
   constructor(private component: WebComponent) {
@@ -20,9 +21,8 @@ class WebComponentEnsurer {
   }
 
   public async isNotVisible() {
-    if (await this.component.isDisplayed()) {
-      throw new Error(`Element ${this.component.selector} is visible`);
-    }
+    const actual = await this.component.isDisplayed()
+    expect(!actual).to.be.true 
   }
 }
 
