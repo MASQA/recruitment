@@ -1,20 +1,18 @@
 import { WebComponent, Browser, Page, findBy, elementIsVisible } from '../lib';
+import { RowPlans } from './CollectionPlans';
 
 export class PricePlanPage extends Page {
   constructor(browser: Browser) {
     super(browser);
   }
 
-  @findBy('.idea-header .header')
-  public Title: WebComponent;
+   @findBy('.mb-0')
+  public Logo: WebComponent; 
 
-  @findBy('div.description')
-  public Description: WebComponent;
-
-  @findBy('.support-counter .value')
-  public SupportCounter: WebComponent;
-
+  @findBy('.princing-section .row')
+  public rowPlans: RowPlans;
+  
   public loadCondition() {
-    return elementIsVisible(() => this.Title);
-  }
+    return elementIsVisible(() => this.rowPlans);
+  }  
 }

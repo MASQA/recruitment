@@ -5,5 +5,5 @@
     "spec": "./src/tests/**/*.js",
     "reporter": "mocha-multi-reporters",
     "reporter-option": "configFile=reporterConfig.json",
-    "grep": "submitUserData"
+    "grep": "optionIsChecked|optionIsNothecked"
 }

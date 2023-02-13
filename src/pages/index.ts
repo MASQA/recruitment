@@ -4,13 +4,13 @@ import { Browser } from '../lib';
 
 export class AllPages {
     public submitPage: SubmitPage;
-    public priceplan: PricePlanPage;
+    public pricePlan: PricePlanPage;
     private browser: Browser;
 
     constructor(private nameBrowser: string = 'chrome') {
       this.buildBrowser()
       this.submitPage = new SubmitPage(this.browser)
-      this.priceplan = new PricePlanPage(this.browser)
+      this.pricePlan = new PricePlanPage(this.browser)
     }
 
     public activateSubmitPage(){
@@ -20,7 +20,7 @@ export class AllPages {
 
     public activatePricePlanPage(){
       this.buildBrowser()
-      this.priceplan = new PricePlanPage(this.browser);
+      this.pricePlan = new PricePlanPage(this.browser);
     }
 
     private buildBrowser() {

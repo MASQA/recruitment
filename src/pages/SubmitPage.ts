@@ -15,6 +15,6 @@ export class SubmitPage extends Page {
 
 
   public loadCondition() {
-    return elementIsPresent(() => this.Logo);
+    return elementIsPresent(() => this.SubmitPanel);
   }
 }

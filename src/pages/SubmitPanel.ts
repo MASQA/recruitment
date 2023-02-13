@@ -44,10 +44,6 @@ export class SubmitPanel extends WebComponent {
     private async fullFillCaptcha() {
         const fNum = await this.FirstNumCaptcha.getText()
         const sNum = await this.SecondNumCaptcha.getText()
-        await this.ResultCaptcha.type((fNum+sNum).toString())
+        await this.ResultCaptcha.type((fNum + sNum).toString())
     }
-
-
-    // text-center cw tac
-
 }

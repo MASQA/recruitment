@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Builder, ThenableWebDriver, WebElement, By, WebElementPromise } from 'selenium-webdriver';
 
 export class WebComponent {
-  constructor(protected element: WebElementPromise, public selector: string) { 
+  constructor(protected element: WebElementPromise | WebElement, public selector: string) { 
     console.log(this.selector);
     console.dir(this);
   }
@@ -23,6 +23,19 @@ export class WebComponent {
     return this.element.findElement(By.css(selector));
   }
 
+  public findElementsInElement(selector: string) {
+    return this.element.findElements(By.css(selector));
+  }
+
+  public getCssValue(cssValue: string) {
+    return this.element.getCssValue(cssValue);
+  }
+
+  public getAttribute(atrName: string) {
+    return this.element.getAttribute(atrName);
+  }
+
+
   public async isDisplayed() {
     try {
       return await this.element.isDisplayed();
@@ -32,7 +45,8 @@ export class WebComponent {
   }
 
   public async getText() {
-    return await this.element.getText();
+    let text = await this.element.getText();
+    return text.trim();
   }
 }
 
@@ -50,13 +64,16 @@ export class Button extends WebComponent {
   }
 }
 
+
+
+
+
 export class TextInput extends WebComponent {
   constructor(element: WebElementPromise, selector: string) {
     super(element, selector);
   }
 
   public async type(text: string) {
-    console.log('Z pltcm')
     const temp = await this.element.isDisplayed()
     expect(temp, `Element with selector ${this.selector} is not found`).to.be.true
     return this.element.sendKeys(text);

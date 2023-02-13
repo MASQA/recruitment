@@ -32,3 +32,18 @@ export function findByInComponent(selector: string) {
     });
   };
 }
+
+export function findByCollection(selector: string) {
+  return (target: any, propertyKey: string) => {
+    const type = Reflect.getMetadata('design:type', target, propertyKey);
+    Object.defineProperty(target, propertyKey, {
+        configurable: true,
+        enumerable: true,
+        get: function() {
+          const parent = this;
+          const promise = (this as any).findElementsInElement(selector);
+          return new type(parent, promise, selector);
+        },
+    });
+  };
+}
